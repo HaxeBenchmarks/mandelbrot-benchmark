@@ -1,0 +1,5 @@
+-cp src
+
+-lib benchmark-helper
+
+-main MandelbrotBenchmark

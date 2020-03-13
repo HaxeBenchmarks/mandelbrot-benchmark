@@ -1,0 +1,181 @@
+<html>
+
+<head>
+    <title>Haxe Mandelbrot Benchmarks (classes)</title>
+    <link href="css/Chart.min.css" type="text/css" rel="stylesheet" />
+    <link href="css/themes/base/all.css" type="text/css" rel="stylesheet" />
+    <link href="css/benchmark.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Haxe Mandelbrot Benchmark (classes)</h1>
+    <ul class="benchmarkDescription">
+        <li>benchmark runs use lix and run on Haxe 3.4.7, Haxe 4.0.5 and Haxe 4 nightly</li>
+        <li>a cron job triggers builds multiple times a day</li>
+        <li>each build job compiles Haxe formatter to C++, C#, Hashlink, Hashlink/C, Java, JVM, eval, Neko, NodeJS, PHP and Python
+            targets</li>
+        <li>JVM and eval are not available on Haxe 3 (Haxe 4 only)</li>
+        <li>Haxe 3 uses Hashlink 1.1, Haxe 4 Hashlink 1.10</li>
+        <li>NodeJS compilation is run twice, with and without "-D js-es=6" (Haxe 4 builds only)</li>
+
+        <li>testcase renders a 875x500 pixel mandelbrot scene with a maximum of 1000 iterations using classes</li>
+
+        <li>results update after every build (page doesn't automatically reload)</li>
+        <li>sources available here: <a href="https://github.com/HaxeBenchmarks/mandelbrot-benchmark">https://github.com/HaxeBenchmarks/mandelbrot-benchmark</a></li>
+    </ul>
+
+    <form class="benchmarkFilter">
+        <table>
+            <tr>
+                <th>Datasets</th>
+                <td>
+                    <ul class="filterDatasets">
+                        <li>
+                            <label for="withHaxe3">Haxe 3</label><br />
+                            <input id="withHaxe3" name="withHaxe3" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="withHaxe4">Haxe 4</label><br />
+                            <input id="withHaxe4" name="withHaxe4" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="withHaxeNightly">Haxe nightly</label><br />
+                            <input id="withHaxeNightly" name="withHaxeNightly" type="checkbox" value="true" checked>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Average</th>
+                <td>
+                    <ul class="filterAverage">
+                        <li>
+                            <br />
+                            <select id="average">
+                                <option value="none">none</option>
+                                <option value="SMA" selected>simple moving average</option>
+                                <option value="EMA">exponential moving average</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="averageWindow">window size</label><br />
+                            <input id="averageWindow" name="averageWindow" type="number" min="2" value="6">
+                        </li>
+                        <li>
+                            <label for="onlyAverage">only averages</label><br />
+                            <input id="onlyAverage" name="onlyAverage" type="checkbox" value="true">
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Range</th>
+                <td>
+                    <ul class="filterRange">
+                        <li>
+                            <label for="startDate">start date</label><br />
+                            <input id="startDate" name="startDate" type="text">
+                        </li>
+                        <li>
+                            <label for="endDate">end date</label><br />
+                            <input id="endDate" name="endDate" type="text">
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>Targets</th>
+                <td>
+                    <div class="filterAllTargets">
+                        <label for="allTargets">all targets</label><br />
+                        <input id="allTargets" name="allTargets" type="checkbox" value="true" checked>
+                    </div>
+                    <ul class="filterTargets">
+                        <li>
+                            <label for="targetCpp">C++</label><br />
+                            <input id="targetCpp" name="targetCpp" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetCSharp">C#</label><br />
+                            <input id="targetCSharp" name="targetCSharp" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetEval">eval</label><br />
+                            <input id="targetEval" name="targetEval" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetHashlink">Hashlink</label><br />
+                            <input id="targetHashlink" name="targetHashlink" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetHashlinkC">Hashlink/C</label><br />
+                            <input id="targetHashlinkC" name="targetHashlinkC" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetJava">Java</label><br />
+                            <input id="targetJava" name="targetJava" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetJvm">Jvm</label><br />
+                            <input id="targetJvm" name="targetJvm" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetNeko">Neko</label><br />
+                            <input id="targetNeko" name="targetNeko" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetNodeJs">NodeJS</label><br />
+                            <input id="targetNodeJs" name="targetNodeJs" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetNodeJsES6">NodeJS (ES6)</label><br />
+                            <input id="targetNodeJsES6" name="targetNodeJsES6" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetPHP">PHP</label><br />
+                            <input id="targetPHP" name="targetPHP" type="checkbox" value="true" checked>
+                        </li>
+                        <li>
+                            <label for="targetPython">Python</label><br />
+                            <input id="targetPython" name="targetPython" type="checkbox" value="true" checked>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="benchmarkGraphs">
+        <canvas id="latestBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="offlinesOfCode" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="cppBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="csharpBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="javaBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="jvmBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="hlBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="hlcBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="nodeBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="nodeES6Benchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="nekoBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="evalBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="phpBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+        <canvas id="pythonBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+    </div>
+
+    <table class="historyLog">
+        <tr>
+            <th>date</th>
+            <th>what</th>
+        </tr>
+        <tr>
+            <td>2020-03-13 13:00:00</td>
+            <td>initial version</td>
+        </tr>
+    </table>
+
+</body>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/Chart.min.js" type="text/javascript"></script>
+<script src="js/benchmark.js" type="text/javascript"></script>
+</html>

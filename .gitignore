@@ -1,0 +1,14 @@
+out/
+node_modules/
+versions/Haxe-*/benchmark.sh
+versions/Haxe-*/build
+versions/Haxe-*/buildAll.hxml
+versions/Haxe-*/data
+versions/Haxe-*/haxe_libraries
+versions/Haxe-*/haxelib.json
+versions/Haxe-*/results
+versions/Haxe-*/results.csv
+versions/Haxe-*/src
+versions/Haxe-*/srcPages
+versions/Haxe-*/buildConvertCsv.hxml
+versions/Haxe-*/CsvToJson.n

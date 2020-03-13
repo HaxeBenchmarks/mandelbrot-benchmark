@@ -1,0 +1,7 @@
+-cp src
+
+-lib benchmark-helper
+
+-D anon_objects
+
+-main MandelbrotBenchmark

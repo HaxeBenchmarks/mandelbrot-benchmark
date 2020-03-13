@@ -1,0 +1,3 @@
+-lib hxnodejs
+-D js-es=6
+-js out/MandelbrotBenchmark.es6.js

@@ -1,0 +1,2 @@
+-hl out/hl/MandelbrotBenchmark.c
+-cmd gcc -O3 -o out/hl/MandelbrotBenchmark -std=c11 -I out/hl $HASHLINK_CC_PARAMS out/hl/MandelbrotBenchmark.c -lhl
