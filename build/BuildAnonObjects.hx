@@ -4,7 +4,7 @@ import haxe.macro.Compiler;
 /**
 	helper class to build everything, avoids `--next`
 **/
-class Build {
+class BuildAnonObjects {
 	/**
 		run all build files
 	**/
