@@ -5,6 +5,7 @@ source benchmark.env
 readonly DATA=$*
 
 ./out/cpp/MandelbrotBenchmark $DATA
+./out/cppGCGen/MandelbrotBenchmark $DATA
 node out/MandelbrotBenchmark.js $DATA
 node out/MandelbrotBenchmark.es6.js $DATA
 java -jar out/java/MandelbrotBenchmark.jar $DATA

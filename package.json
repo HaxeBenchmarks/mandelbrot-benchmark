@@ -1,25 +1,25 @@
 {
-  "name": "json-benchmark",
-  "version": "1.0.0",
-  "description": "Haxe benchmark doing allocations",
+  "name": "mandelbrot-benchmark",
+  "version": "1.1.0",
+  "description": "Haxe benchmark rendering a mandelbrot scene",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HaxeBenchmarks/json-benchmark.git"
+    "url": "git+https://github.com/HaxeBenchmarks/mandelbrot-benchmark.git"
   },
   "keywords": [
     "benchmark",
     "haxe",
-    "json"
+    "mandelbrot"
   ],
   "author": {
     "name": "Alexander Blum",
     "email": "Alexander.Blum@gmail.com"
   },
   "bugs": {
-    "url": "https://github.com/HaxeBenchmarks/json-benchmark/issues"
+    "url": "https://github.com/HaxeBenchmarks/mandelbrot-benchmark/issues"
   },
   "devDependencies": {
     "lix": "^15.8.5"
   },
-  "homepage": "https://github.com/HaxeBenchmarks/json-benchmark#readme"
+  "homepage": "https://github.com/HaxeBenchmarks/mandelbrot-benchmark#readme"
 }
