@@ -20,8 +20,6 @@ neko out/MandelbrotBenchmark.n $DATA
 python3 out/MandelbrotBenchmark.py $DATA
 lua out/MandelbrotBenchmark.lua $DATA
 
-
-
 # second run to smooth graphs a little
 ./out/cpp/MandelbrotBenchmark $DATA
 ./out/cppGCGen/MandelbrotBenchmark $DATA

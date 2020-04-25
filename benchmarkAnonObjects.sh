@@ -18,7 +18,7 @@ haxe build/commonAnonObjects.hxml --run MandelbrotBenchmark $DATA
 php out/php/index.php $DATA
 neko out/MandelbrotBenchmark.n $DATA
 python3 out/MandelbrotBenchmark.py $DATA
-# lua out/MandelbrotBenchmark.lua $DATA
+lua out/MandelbrotBenchmark.lua $DATA
 
 # second run to smooth graphs a little
 ./out/cpp/MandelbrotBenchmark $DATA

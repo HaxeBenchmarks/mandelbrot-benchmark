@@ -108,7 +108,6 @@ pipeline {
                 echo 'Build targets for Haxe 3'
                 sh '''
                 cd versions/Haxe-3
-                ./installAndCompileHxcpp.sh
                 ./build.sh
                 '''
             }
@@ -119,7 +118,6 @@ pipeline {
                 echo 'Build targets for Haxe 4'
                 sh '''
                 cd versions/Haxe-4
-                ./installAndCompileHxcpp.sh
                 ./build.sh
                 '''
             }
@@ -130,7 +128,6 @@ pipeline {
                 echo 'Build targets for Haxe nightly'
                 sh '''
                 cd versions/Haxe-nightly
-                ./installAndCompileHxcpp.sh
                 ./build.sh
                 '''
             }
@@ -143,6 +140,7 @@ pipeline {
                 cd versions/Haxe-3
                 readonly VER=`haxe -version`
                 echo "Running Haxe $VER benchmark"
+                ./installAndCompileHxcpp.sh
                 ./benchmark.sh | tee results.csv
                 '''
             }
@@ -155,6 +153,7 @@ pipeline {
                 cd versions/Haxe-4
                 readonly VER=`haxe -version`
                 echo "Running Haxe $VER benchmark"
+                ./installAndCompileHxcpp.sh
                 ./benchmark.sh | tee results.csv
                 '''
             }
@@ -167,6 +166,7 @@ pipeline {
                 cd versions/Haxe-nightly
                 readonly VER=`haxe -version`
                 echo "Running Haxe $VER benchmark"
+                ./installAndCompileHxcpp.sh
                 ./benchmark.sh | tee results.csv
                 '''
             }
