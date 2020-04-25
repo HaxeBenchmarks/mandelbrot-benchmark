@@ -31,6 +31,7 @@ pipeline {
                 sh '''
                 cd versions/Haxe-3
                 ln -sfn ../../benchmark.sh . 
+                ln -sfn ../../installAndCompileHxcpp.sh . 
                 ln -sfn ../../build 
                 ln -sfn ../../buildAll.hxml . 
                 ln -sfn ../../buildConvertCsv.hxml 
@@ -45,6 +46,7 @@ pipeline {
                 sh '''
                 cd versions/Haxe-4
                 ln -sfn ../../benchmark.sh . 
+                ln -sfn ../../installAndCompileHxcpp.sh . 
                 ln -sfn ../../build 
                 ln -sfn ../../buildAll.hxml . 
                 ln -sfn ../../buildConvertCsv.hxml 
@@ -59,6 +61,7 @@ pipeline {
                 sh '''
                 cd versions/Haxe-nightly
                 ln -sfn ../../benchmark.sh . 
+                ln -sfn ../../installAndCompileHxcpp.sh . 
                 ln -sfn ../../build 
                 ln -sfn ../../buildAll.hxml . 
                 ln -sfn ../../buildConvertCsv.hxml 
@@ -93,13 +96,8 @@ pipeline {
                 lix download haxe nightly
                 lix use haxe nightly
                 lix download
-                lix install github:HaxeFoundation/hxcpp
                 '''
 
-                echo 'Compile hxcpp build tool'
-                sh '''
-                echo "y" | lix run hxcpp run 2> /dev/null || true
-                '''
             }
         }
 
@@ -108,6 +106,7 @@ pipeline {
                 echo 'Build targets for Haxe 3'
                 sh '''
                 cd versions/Haxe-3
+                ./installAndCompileHxcpp.sh
                 ./build.sh
                 '''
             }
@@ -118,6 +117,7 @@ pipeline {
                 echo 'Build targets for Haxe 4'
                 sh '''
                 cd versions/Haxe-4
+                ./installAndCompileHxcpp.sh
                 ./build.sh
                 '''
             }
@@ -128,6 +128,7 @@ pipeline {
                 echo 'Build targets for Haxe nightly'
                 sh '''
                 cd versions/Haxe-nightly
+                ./installAndCompileHxcpp.sh
                 ./build.sh
                 '''
             }

@@ -6,6 +6,7 @@ readonly DATA=$*
 
 ./out/cpp/MandelbrotBenchmark $DATA
 ./out/cppGCGen/MandelbrotBenchmark $DATA
+haxelib run hxcpp out/MandelbrotBenchmark.cppia 
 node out/MandelbrotBenchmark.js $DATA
 node out/MandelbrotBenchmark.es6.js $DATA
 java -jar out/java/MandelbrotBenchmark.jar $DATA
